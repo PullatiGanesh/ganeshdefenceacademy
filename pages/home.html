@@ -1,0 +1,103 @@
+<section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0 slider">
+        <img src="assets/images/hero/slide1.jpg" class="slide active absolute inset-0 w-full h-full object-cover">
+        <img src="assets/images/hero/slide2.jpg" class="slide absolute inset-0 w-full h-full object-cover">
+        <img src="assets/images/hero/slide3.jpg" class="slide absolute inset-0 w-full h-full object-cover">
+    </div>
+
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent z-10"></div>
+
+    <div class="relative z-20 text-center px-6 max-w-5xl">
+        <h1 class="text-5xl md:text-8xl font-black uppercase italic tracking-tighter leading-none text-white drop-shadow-2xl" data-lang="hero_title">
+            Forge Your <span class="text-accent">Legacy</span>
+        </h1>
+        <p class="mt-6 text-lg md:text-2xl text-slate-300 uppercase tracking-widest font-bold" data-lang="hero_subtitle">
+            Premier Defence Academy for Warriors
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <button onclick="loadPage('contact')" class="bg-brand text-white px-8 py-4 rounded-lg font-black uppercase hover:bg-accent transition-all transform hover:scale-105 active:scale-95">
+                Join Now
+            </button>
+            <button onclick="loadPage('about')" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-lg font-black uppercase hover:bg-white hover:text-brand transition-all">
+                The Academy
+            </button>
+        </div>
+    </div>
+
+    <button class="absolute left-6 top-1/2 z-30 p-4 bg-black/20 hover:bg-brand rounded-full transition" onclick="prevSlide()">❮</button>
+    <button class="absolute right-6 top-1/2 z-30 p-4 bg-black/20 hover:bg-brand rounded-full transition" onclick="nextSlide()">❯</button>
+</section>
+
+<section class="max-w-7xl mx-auto py-24 px-6">
+    <h2 class="text-4xl font-black uppercase text-center mb-16 underline decoration-accent underline-offset-8" data-lang="why_title">Why Ganesh Academy?</h2>
+    
+    <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> -->
+        <!-- <div class="info-card group p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/5 hover:border-brand transition-all">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🪖</div>
+            <h3 class="text-xl font-bold mb-2">Military Discipline</h3>
+            <p class="text-slate-500 text-sm" data-lang="why_1">Experienced retired officers as mentors.</p>
+        </div>
+        <div class="info-card group p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/5 hover:border-brand transition-all">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🏃</div>
+            <h3 class="text-xl font-bold mb-2">Physical Excellence</h3>
+            <p class="text-slate-500 text-sm" data-lang="why_2">Specialized endurance and drill training.</p>
+        </div>
+        <div class="info-card group p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/5 hover:border-brand transition-all">
+            <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🎯</div>
+            <h3 class="text-xl font-bold mb-2">Mission Focus</h3>
+            <p class="text-slate-500 text-sm" data-lang="why_3">High success rate in NDA, SSC, and Navy.</p>
+        </div> -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="highlight-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border-l-4 border-brand">
+                <p class="text-lg font-bold" data-lang="highlight_1"></p>
+            </div>
+            <div class="highlight-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border-l-4 border-brand">
+                <p class="text-lg font-bold" data-lang="highlight_2"></p>
+            </div>
+            <div class="highlight-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border-l-4 border-brand">
+                <p class="text-lg font-bold" data-lang="highlight_3"></p>
+            </div>
+            <div class="highlight-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border-l-4 border-brand">
+                <p class="text-lg font-bold" data-lang="highlight_4"></p>
+            </div>
+            <div class="highlight-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border-l-4 border-brand">
+                <p class="text-lg font-bold" data-lang="highlight_5"></p>
+            </div>
+            <div class="highlight-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border-l-4 border-brand">
+                <p class="text-lg font-bold" data-lang="highlight_6"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="joining-section" class="py-16 bg-slate-950 text-white border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        
+        <button onclick="toggleJoiningProcess()" 
+                class="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand rounded-full font-black uppercase tracking-widest hover:bg-accent transition-all duration-300 shadow-2xl">
+            <span data-lang="joining_title">Joining Process</span>
+            <span id="join-icon" class="text-xl transition-transform duration-500">+</span>
+        </button>
+
+        <div id="joining-steps-wrapper" class="max-h-0 overflow-hidden transition-all duration-700 ease-in-out mt-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8">
+                <div class="join-step-card">
+                    <div class="join-number">1</div>
+                    <p class="text-xs font-bold uppercase" data-lang="join_1"></p>
+                </div>
+                <div class="join-step-card">
+                    <div class="join-number">2</div>
+                    <p class="text-xs font-bold uppercase" data-lang="join_2"></p>
+                </div>
+                <div class="join-step-card">
+                    <div class="join-number">3</div>
+                    <p class="text-xs font-bold uppercase" data-lang="join_3"></p>
+                </div>
+                <div class="join-step-card">
+                    <div class="join-number">4</div>
+                    <p class="text-xs font-bold uppercase" data-lang="join_4"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

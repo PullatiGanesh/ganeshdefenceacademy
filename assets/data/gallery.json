@@ -1,0 +1,8 @@
+{
+  "config": [
+    { "folder": "awards", "count": 18, "title": "Award Recognition" },
+    { "folder": "women", "count": 7, "title": "Women Aspirants" },
+    { "folder": "men", "count": 15, "title": "Men Aspirants" },
+    { "folder": "drills", "count": 11,"title": "Tactical Training" }
+  ]
+}

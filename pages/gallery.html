@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Visual Journey - Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50">
+
+<section class="max-w-7xl mx-auto py-16 px-6">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl font-black uppercase tracking-tight text-slate-800" data-lang="gallery_title">Our Visual Journey</h2>
+        <div class="h-1.5 w-20 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+    </div>
+    
+    <div class="flex flex-col md:flex-row justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-8 gap-4">
+        <div class="flex items-center gap-3">
+            <span class="text-sm font-semibold text-slate-500" data-lang="show_label">Show:</span>
+            <select id="itemsPerPage" class="bg-white dark:bg-slate-800 
+               text-slate-900 dark:text-white 
+               border border-slate-300 dark:border-slate-600 
+               text-sm rounded-lg p-2 px-3
+               focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+               appearance-none cursor-pointer shadow-sm">
+               <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">All</option>
+            </select>
+        </div>
+        
+
+        <div class="flex flex-wrap justify-center gap-2" id="category-filters">
+            <button class="filter-btn active" data-filter="all" data-lang="cat_all">All Stories</button>
+            <button class="filter-btn" data-filter="awards" data-lang="cat_awards">Awards & Accolades</button>
+            <button class="filter-btn" data-filter="women" data-lang="cat_women">Women Aspirants</button>
+            <button class="filter-btn" data-filter="men" data-lang="cat_men">Men in Mission</button>
+            <button class="filter-btn" data-filter="drills" data-lang="cat_drills">Tactical Training</button>
+        </div>
+    </div>
+
+    <div id="gallery-grid" class="columns-1 sm:columns-2 lg:columns-4 gap-4 space-y-4 min-h-[400px]">
+        </div>
+
+    <div id="pagination-wrapper" class="flex flex-col items-center mt-12 gap-4">
+        <div id="pagination-info" class="text-sm text-slate-500 font-medium"></div>
+        <div id="pagination-buttons" class="flex gap-2"></div>
+    </div>
+</section>
+
+
+
+</body>
+</html>
