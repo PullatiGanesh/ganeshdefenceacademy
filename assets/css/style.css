@@ -35,3 +35,226 @@ img {
         flex-direction: row; /* Side-by-side on Desktop */
     }
 }
+/* mobile menu  */
+/* Force the Bottom Sheet Grid to stay separated */
+#bottomSheet nav {
+    display: grid !important;
+    grid-template-cols: 1fr 1fr !important; /* Forces 2 columns */
+    gap: 12px !important;
+    align-content: start;
+}
+
+#bottomSheet nav a {
+    min-height: 100px; /* Ensures boxes don't collapse and merge */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden; /* Prevents text from leaking out */
+}
+
+/* Fix for the Main Body content merging with Header */
+main#content {
+    padding-top: 70px; /* Adjust based on your header height */
+    display: block;
+    width: 100%;
+}
+/* --- UNIVERSAL FIXES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- MOBILE RESOLUTION FIXES (Max 768px) --- */
+@media (max-width: 768px) {
+    /* Fixes First Photo: Left/Right side not covering */
+    #nav-banner {
+        width: 100vw !important; /* Forces full width of viewport */
+        max-width: none !important;
+        margin-left: -1rem; /* Offsets common container padding */
+    }
+
+    #nav-banner img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: fill !important; /* Stretches to cover the edges */
+    }
+
+    /* Fixes Hero/Slide images on Home Page */
+    .hero-slider, .slide {
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%); /* Centers and expands to full width */
+    }
+
+    .slide img {
+        width: 100% !important;
+        object-fit: fill !important; /* Ensures no empty side gaps */
+    }
+}
+
+/* --- DESKTOP MODE FIXES --- */
+/* --- DESKTOP MODE (Default) --- */
+#main-banner-img {
+    max-height: 80px;      /* Keep your desktop height */
+    width: auto;           /* Let it scale naturally */
+    object-fit: contain;
+    display: block;
+}
+
+/* --- MOBILE RESOLUTION FIX (Max 768px) --- */
+@media (max-width: 768px) {
+    #nav-banner {
+        width: 100vw !important;  /* Force full viewport width */
+        margin-left: -5rem;       /* Pulls image to the very left edge */
+        margin-right: -1rem;      /* Pulls image to the very right edge */
+    }
+
+    #main-banner-img {
+        width: 100% !important;   /* Stretches image to fill the 100vw */
+        height: auto !important;  /* Maintains aspect ratio */
+        max-height: none !important; 
+        object-fit: fill !important; /* Ensures no white gaps on sides */
+        border-radius: 0 !important; /* Removes rounded corners on mobile */
+    }
+    
+    /* Ensure the parent container doesn't restrict the banner */
+    .flex.items-center.cursor-pointer {
+        width: 100%;
+    }
+}
+/* --- MOBILE SLIDER FIX (Max 768px) --- */
+/* --- MOBILE SLIDER HEIGHT & SPACE FIX --- */
+@media (max-width: 768px) {
+    /* 1. Force the slider container to be shorter on mobile */
+    .hero-slider, 
+    .slide-container,
+    #content .slide {
+        height: auto !important;      /* Allow height to follow the image */
+        min-height: 250px !important;  /* Prevents it from being too flat */
+        max-height: 400px !important;  /* Decreases vertical length */
+        margin-bottom: 0 !important;   /* Removes any bottom spacing */
+        overflow: hidden;
+    }
+
+    /* 2. Ensure the image fills the new smaller height */
+    .slide img {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: fill !important;   /* Matches your posters perfectly */
+    }
+
+    /* 3. Pull the following section up to touch the image */
+    #content > div:nth-child(2) {
+        margin-top: -5px !important; 
+    }
+}
+  /* ]floating buttons in slide */
+  @media (max-width: 768px) {
+    .hero-buttons {
+        bottom: 20px !important; /* Positions buttons closer to the bottom of the image */
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-buttons a, .hero-buttons button {
+        padding: 8px 16px !important; /* Smaller buttons for mobile */
+        font-size: 10px !important;
+    }
+}
+@media (max-width: 768px) {
+    main#content {
+        padding-bottom: 0 !important;
+    }
+    
+    section {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}
+/* slide vertical height */
+/* Ensure the Header is always on top */
+nav, header {
+    z-index: 1000 !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Fix for Slides going under the banner */
+.hero-slider, .slide-container {
+    z-index: 10; /* Lower than nav */
+    position: relative;
+    /* This pushes the slider down so it doesn't hide behind the banner */
+    margin-top: 60px !important; 
+}
+
+@media (min-width: 769px) {
+    .hero-slider, .slide-container {
+        /* Desktop usually needs a larger push-down */
+        margin-top: 80px !important; 
+    }
+}
+.slide img {
+    width: 100% !important;
+    height: 100% !important;
+    /* 'contain' ensures the WHOLE image is visible without being cut by the banner */
+    object-fit: contain !important; 
+    /* This ensures the image starts from the top of its container */
+    object-position: top center !important; 
+    background-color: #f8fafc; /* Optional: matches page background if image is small */
+}
+
+@media (max-width: 768px) {
+    .slide img {
+        /* On mobile, 'fill' might look better if you want edge-to-edge */
+        object-fit: fill !important; 
+    }
+}
+/* --- LAYER 1: THE HEADER --- */
+nav, header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999 !important; /* Extremely high to stay on top */
+    background: white; /* Ensures no transparency overlap */
+}
+
+/* --- LAYER 2: THE CONTENT PUSH --- */
+/* We apply padding to the main container instead of margin to the slides */
+main#content {
+    padding-top: 60px !important; /* Matches mobile banner height */
+}
+
+@media (min-width: 769px) {
+    main#content {
+        padding-top: 80px !important; /* Matches desktop banner height */
+    }
+}
+
+/* --- LAYER 3: SLIDER HEIGHT CONSTRAINTS --- */
+.hero-slider, .slide-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 0 !important; /* Resetting previous margin attempts */
+}
+
+@media (max-width: 768px) {
+    /* Decreases vertical length on mobile to prevent "Big Image" error */
+    .hero-slider, .slide-container, .slide {
+        height: 35vh !important; /* Only takes 35% of the screen */
+        min-height: 220px !important;
+    }
+    
+    .slide img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: fill !important; /* Keeps the text on your posters visible */
+    }
+}

@@ -6,3 +6,25 @@ requestAnimationFrame(raf);let currentPage="";function loadPage(page){if(current
 function updateHeaderState(page){const banner=document.getElementById("nav-banner");const logo=document.getElementById("nav-logo");if(page==='home'){banner.classList.remove("hidden");logo.classList.add("hidden")}else{banner.classList.add("hidden");logo.classList.remove("hidden")}}
 function toggleDark(){document.documentElement.classList.toggle("dark")}
 window.addEventListener('DOMContentLoaded',()=>{loadPage('home')})
+function toggleMobileMenu() {
+    const menuWrapper = document.getElementById('mobileMenu');
+    const sheet = document.getElementById('bottomSheet');
+    const fab = document.getElementById('fab-button');
+
+    if (menuWrapper.classList.contains('hidden')) {
+        // OPENING
+        menuWrapper.classList.remove('hidden');
+        // Small timeout to allow 'hidden' to be removed before animating
+        setTimeout(() => {
+            sheet.classList.remove('translate-y-full');
+            fab.classList.add('scale-0', 'rotate-90'); // Hide FAB while menu is open
+        }, 10);
+    } else {
+        // CLOSING
+        sheet.classList.add('translate-y-full');
+        fab.classList.remove('scale-0', 'rotate-90');
+        setTimeout(() => {
+            menuWrapper.classList.add('hidden');
+        }, 500); // Matches the duration-500 transition
+    }
+}

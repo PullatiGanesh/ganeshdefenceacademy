@@ -13,9 +13,9 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/react-lenis@1.0.33/dist/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script> -->
 
     <script>
         tailwind.config = {
@@ -32,6 +32,90 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+<button onclick="toggleMobileMenu()" 
+        class="md:hidden fixed bottom-6 right-6 z-[130] bg-brand dark:bg-accent text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-xl transition-all active:scale-90 border-4 border-white/20"
+        id="fab-button">
+    <i class="fas fa-bars"></i>
+</button>
+
+<div id="mobileMenu" class="fixed inset-0 z-[140] hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="toggleMobileMenu()"></div>
+    
+    <div id="bottomSheet" 
+         class="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-900 rounded-t-[2rem] p-6 pb-10 transform translate-y-full transition-transform duration-500">
+        
+        <div class="w-12 h-1 bg-slate-200 dark:bg-white/10 rounded-full mx-auto mb-6"></div>
+
+        <div class="flex justify-between items-center mb-6 px-2">
+            <h2 class="font-black text-lg uppercase tracking-widest text-brand dark:text-accent">Academy Menu</h2>
+            <button onclick="toggleMobileMenu()" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/10">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <nav class="grid grid-cols-2 gap-3 mb-6 w-full max-h-[60vh] overflow-y-auto px-1">
+            <a onclick="loadPage('home'); toggleMobileMenu();" class="flex flex-col items-center justify-center gap-2 p-4 bg-slate-50 dark:bg-white/5 rounded-xl border border-slate-100 dark:border-white/10" data-lang="nav_home">
+                <div class="w-10 h-10 bg-brand/10 dark:bg-accent/10 rounded-lg flex items-center justify-center mb-2">
+                    <i class="fas fa-home text-brand dark:text-accent"></i>
+
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-tight">Home</span>
+            </a>
+
+            <a onclick="loadPage('about'); toggleMobileMenu();" class="flex flex-col items-center justify-center gap-2 p-5 bg-slate-50 dark:bg-white/5 rounded-2xl border border-slate-100 dark:border-white/10 active:scale-95 transition-transform" data-lang="nav_about">
+                <div class="w-12 h-12 flex items-center justify-center bg-accent/10 rounded-xl mb-1">
+                    <i class="fas fa-info-circle text-accent text-xl"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-tighter">About</span>
+            </a>
+
+            <a onclick="loadPage('courses'); toggleMobileMenu();" class="flex flex-col items-center justify-center gap-2 p-5 bg-slate-50 dark:bg-white/5 rounded-2xl border border-slate-100 dark:border-white/10 active:scale-95 transition-transform" data-lang="nav_courses">
+                <div class="w-12 h-12 flex items-center justify-center bg-accent/10 rounded-xl mb-1">
+                    <i class="fas fa-graduation-cap text-accent text-xl"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-tighter">Courses</span>
+            </a>
+
+            <a onclick="loadPage('achievements'); toggleMobileMenu();" class="flex flex-col items-center justify-center gap-2 p-5 bg-slate-50 dark:bg-white/5 rounded-2xl border border-slate-100 dark:border-white/10 active:scale-95 transition-transform" data-lang="nav_achievements">
+                <div class="w-12 h-12 flex items-center justify-center bg-accent/10 rounded-xl mb-1">
+                    <i class="fas fa-award text-accent text-xl"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-tighter">Achievements</span>
+            </a>
+
+            <a onclick="loadPage('gallery'); toggleMobileMenu();" class="flex flex-col items-center justify-center gap-2 p-5 bg-slate-50 dark:bg-white/5 rounded-2xl border border-slate-100 dark:border-white/10 active:scale-95 transition-transform" data-lang="nav_gallery">
+                <div class="w-12 h-12 flex items-center justify-center bg-accent/10 rounded-xl mb-1">
+                    <i class="fas fa-images text-accent text-xl"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-tighter">Gallery</span>
+            </a>
+
+            <a onclick="loadPage('contact'); toggleMobileMenu();" class="flex flex-col items-center justify-center gap-2 p-5 bg-slate-50 dark:bg-white/5 rounded-2xl border border-slate-100 dark:border-white/10 active:scale-95 transition-transform" data-lang="nav_contact">
+                <div class="w-12 h-12 flex items-center justify-center bg-accent/10 rounded-xl mb-1">
+                    <i class="fas fa-paper-plane text-accent text-xl"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-tighter">Contact</span>
+            </a>
+        </nav>
+
+        <div class="flex items-center justify-between mt-8 pt-6 border-t dark:border-white/10">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleDark()" class="w-12 h-12 flex items-center justify-center bg-slate-100 dark:bg-white/10 rounded-full text-lg shadow-inner">
+                    🌙
+                </button>
+                <div class="bg-slate-100 dark:bg-white/10 rounded-full px-3 py-2">
+                    <select onchange="changeLanguage(this.value)" class="bg-transparent font-bold text-[10px] uppercase outline-none">
+                        <option value="en">EN</option>
+                        <option value="te">తెలుగు</option>
+                    </select>
+                </div>
+            </div>
+            <a href="https://wa.me/9642081090" class="px-5 py-3 bg-[#25D366] text-white rounded-full font-black text-[10px] tracking-widest flex items-center gap-2 shadow-lg">
+                <i class="fab fa-whatsapp text-base"></i> JOIN NOW
+            </a>
+        </div>
+    </div>
+</div>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
 
     <!-- <div id="loader-curtain" class="fixed inset-0 bg-brand z-[10] transform translate-y-full"></div> -->
@@ -39,14 +123,14 @@
     <nav class="fixed top-0 w-full z-50 bg-white/10 dark:bg-black/40 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
            
-          <div class="flex items-center gap-3 cursor-pointer" onclick="loadPage('home')">
+          <div class="flex items-center cursor-pointer" onclick="loadPage('home')">
     <div id="nav-banner" class="hidden">
         <img src="assets/images/banner.jpg" class="w-full max-h-20 object-contain shadow-lg" alt="Academy Banner">
     </div>
 
-    <div id="nav-logo" class="flex items-center gap-3">
-        <img src="assets/images/logo.jpg" class="w-12 h-12 rounded-full border-2 border-brand shadow-lg" alt="Logo">
-        <h1 class="text-xl font-black uppercase tracking-tighter hidden sm:block" data-lang="academy_name">Ganesh Defence</h1>
+    <div id="nav-logo" class="flex items-center gap-1 hidden items-center flex-row flex-nowrap gap-2 min-w-0">
+        <img src="assets/images/logo.jpg" class="w-10 h-10 rounded-full border-2 border-brand shadow-lg" alt="Logo">
+        <h1 class="text-xl font-black uppercase tracking-tighter" data-lang="academy_name">Ganesh Defence</h1>
     </div>
 </div>
             
@@ -61,11 +145,11 @@
                 </div>
 
                 <div class="flex items-center gap-4 border-l border-white/20 pl-6">
-                    <select onchange="changeLanguage(this.value)" class="bg-transparent text-xs font-bold border border-white/20 rounded px-2 py-1 outline-none">
+                    <select onchange="changeLanguage(this.value)" class="bg-transparent text-xs font-bold border border-white/20 rounded px-2 py-1 outline-none hidden sm:block">
                         <option value="en" class="text-black">ENGLISH</option>
                         <option value="te" class="text-black">తెలుగు</option>
                     </select>
-                    <button onclick="toggleDark()" class="p-2 bg-white/5 rounded-full hover:bg-white/20 transition">🌙</button>
+                    <button onclick="toggleDark()" class="p-2 bg-white/5 rounded-full hover:bg-white/20 transition hidden sm:block">🌙</button>
                 </div>
             </div>
         </div>
