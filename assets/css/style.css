@@ -258,3 +258,65 @@ main#content {
         object-fit: fill !important; /* Keeps the text on your posters visible */
     }
 }
+/* --- DARK MODE MOBILE MENU VISIBILITY --- */
+/* We target the 'html.dark' to ensure the background actually flips */
+html.dark #bottomSheet {
+    background-color: #0f172a !important; /* Deep Slate Navy */
+}
+
+/* Force the text and icons to be white in Dark Mode */
+html.dark #bottomSheet h2,
+html.dark #bottomSheet i,
+html.dark #bottomSheet span,
+html.dark #bottomSheet p {
+    color: #ffffff !important;
+}
+
+/* Ensure the 'Close' button and 'Menu Handle' are visible */
+html.dark #bottomSheet .bg-slate-200,
+html.dark #bottomSheet .bg-slate-100 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+/* --- DARK MODE MENU HIGHLIGHT FIX --- */
+
+/* 1. Force the main container background */
+html.dark #bottomSheet {
+    background-color: #0f172a !important; /* Deep Navy */
+}
+
+/* 2. Force the boxes (Home, About, etc.) to highlight in a different color */
+html.dark #bottomSheet nav a {
+    background-color: #1e293b !important; /* Lighter Slate for the boxes */
+    border: 1px solid #334155 !important;  /* Subtle border highlight */
+}
+
+/* 3. Force the labels and icons to be pure white */
+html.dark #bottomSheet span, 
+html.dark #bottomSheet h2 {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+html.dark #bottomSheet i {
+    color: #38bdf8 !important; /* Sky Blue icons to make them pop */
+}
+
+/* 4. Active state highlight */
+html.dark #bottomSheet nav a:active {
+    background-color: #334155 !important;
+    scale: 0.95;
+}
+/* Ensure uniformity in dark mode */
+html.dark #bottomSheet nav a {
+    height: 90px !important; /* Forces the small block look */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Tactical font size for small blocks */
+html.dark #bottomSheet span {
+    font-size: 9px !important;
+    margin-top: 4px;
+}
