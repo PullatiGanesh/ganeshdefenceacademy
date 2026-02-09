@@ -49,16 +49,6 @@ const icons = {
   navy: `<img src="assets/images/icons/navy.png" class="md:w-14 md:h-14 object-contain transition-transform" alt="Navy">`
 };
 
-/* ================================
-   INIT
-================================ */
-// document.addEventListener("DOMContentLoaded", () => {
-//   generateYearTabs();
-//   generateCategoryTabs();
-//   updateImage();
-//   updateUI();
-//   enableSwipe();
-// });
 function initAchievements() {
   generateYearTabs();
   generateCategoryTabs();
@@ -165,12 +155,6 @@ function changeCategory(cat) {
 }
 
 /* ================================
-   UPDATE IMAGE
-================================ */
-/* ================================
-   UPDATE IMAGE (Dynamic)
-================================ */
-/* ================================
    UPDATE IMAGE (One Photo Per Year)
 ================================ */
 function updateImage() {
@@ -243,9 +227,6 @@ function animateCounter(id, target) {
   }, 30);
 }
 
-/* ================================
-   BAR CHART ANIMATION (RAW NUMBERS)
-================================ */
 /* ================================
    BAR CHART ANIMATION (BAR ONLY)
 ================================ */
